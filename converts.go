@@ -19,3 +19,29 @@ func S2B(s string) (b []byte) {
 	bh.Len = sh.Len
 	return b
 }
+
+// B2I64 converts a byte slice to an int64
+func B2I64(s []byte) (res int64, ok bool) {
+	sign := len(s) > 0 && s[0] == '-'
+	if sign {
+		s = s[1:]
+	}
+
+	ok = true
+
+	res = 0
+	for _, c := range s {
+		if v := int64(c - '0'); v < 0 || v > 9 {
+			ok = false
+			break
+		} else {
+			res = res*10 + v
+		}
+	}
+
+	if sign {
+		res = -res
+	}
+
+	return
+}
