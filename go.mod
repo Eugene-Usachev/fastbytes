@@ -1,3 +1,3 @@
-module github/Eugene-Usachev/fastbytes
+module github.com/Eugene-Usachev/fastbytes
 
 go 1.19
