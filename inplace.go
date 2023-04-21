@@ -1,6 +1,6 @@
 package fastbytes
 
-func bytesToLowerInplace(buf []byte) {
+func BytesToLowerInplace(buf []byte) {
 	for i, ch := range buf {
 		if ch >= 'A' && ch <= 'Z' {
 			buf[i] += 'a' - 'A'
@@ -8,7 +8,7 @@ func bytesToLowerInplace(buf []byte) {
 	}
 }
 
-func bytesTrimLeftInplace(buf []byte) []byte {
+func BytesTrimLeftInplace(buf []byte) []byte {
 	i, l := 0, len(buf)
 	for ; i < l && buf[i] == ' '; i++ {
 	}
