@@ -17,102 +17,82 @@ func S2B(s string) (b []byte) {
 
 // U2B converts an uint to a byte slice using unsafe
 func U2B(u uint) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&u))
-	h.Len = int(unsafe.Sizeof(u))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 8)
+	ptr := unsafe.Pointer(&u)
+	*(*uint64)(unsafe.Pointer(&bytes[0])) = *(*uint64)(ptr)
+	return bytes
 }
 
 // U8ToB converts an uint8 to a byte slice using unsafe
 func U8ToB(u uint8) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&u))
-	h.Len = int(unsafe.Sizeof(u))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 1)
+	ptr := unsafe.Pointer(&u)
+	*(*uint8)(unsafe.Pointer(&bytes[0])) = *(*uint8)(ptr)
+	return bytes
 }
 
 // U16ToB converts an uint16 to a byte slice using unsafe
 func U16ToB(u uint16) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&u))
-	h.Len = int(unsafe.Sizeof(u))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 2)
+	ptr := unsafe.Pointer(&u)
+	*(*uint16)(unsafe.Pointer(&bytes[0])) = *(*uint16)(ptr)
+	return bytes
 }
 
 // U32ToB converts an uint32 to a byte slice using unsafe
 func U32ToB(u uint32) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&u))
-	h.Len = int(unsafe.Sizeof(u))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 4)
+	ptr := unsafe.Pointer(&u)
+	*(*uint32)(unsafe.Pointer(&bytes[0])) = *(*uint32)(ptr)
+	return bytes
 }
 
 // U64ToB converts an uint64 to a byte slice using unsafe
 func U64ToB(u uint64) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&u))
-	h.Len = int(unsafe.Sizeof(u))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 8)
+	ptr := unsafe.Pointer(&u)
+	*(*uint64)(unsafe.Pointer(&bytes[0])) = *(*uint64)(ptr)
+	return bytes
 }
 
 // I2B converts an int to a byte slice using unsafe
 func I2B(i int) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&i))
-	h.Len = int(unsafe.Sizeof(i))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 8)
+	ptr := unsafe.Pointer(&i)
+	*(*int64)(unsafe.Pointer(&bytes[0])) = *(*int64)(ptr)
+	return bytes
 }
 
 // I8ToB converts an int8 to a byte slice using unsafe
 func I8ToB(i int8) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&i))
-	h.Len = int(unsafe.Sizeof(i))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 1)
+	ptr := unsafe.Pointer(&i)
+	*(*int8)(unsafe.Pointer(&bytes[0])) = *(*int8)(ptr)
+	return bytes
 }
 
 // I16ToB converts an int16 to a byte slice using unsafe
 func I16ToB(i int16) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&i))
-	h.Len = int(unsafe.Sizeof(i))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 2)
+	ptr := unsafe.Pointer(&i)
+	*(*int16)(unsafe.Pointer(&bytes[0])) = *(*int16)(ptr)
+	return bytes
 }
 
 // I32ToB converts an int32 to a byte slice using unsafe
 func I32ToB(i int32) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&i))
-	h.Len = int(unsafe.Sizeof(i))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 4)
+	ptr := unsafe.Pointer(&i)
+	*(*int32)(unsafe.Pointer(&bytes[0])) = *(*int32)(ptr)
+	return bytes
 }
 
 // I64ToB converts an int64 to a byte slice using unsafe
 func I64ToB(i int64) []byte {
-	var b []byte
-	h := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-	h.Data = uintptr(unsafe.Pointer(&i))
-	h.Len = int(unsafe.Sizeof(i))
-	h.Cap = h.Len
-	return b
+	bytes := make([]byte, 8)
+	ptr := unsafe.Pointer(&i)
+	*(*int64)(unsafe.Pointer(&bytes[0])) = *(*int64)(ptr)
+	return bytes
 }
 
 // B2S converts a byte slice to a string
