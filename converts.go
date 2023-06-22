@@ -120,6 +120,36 @@ func B2S(b []byte) string {
 	return *(*string)(unsafe.Pointer(&b))
 }
 
+// B2U converts a byte slice to an uint
+func B2U(s []byte) (res uint, ok bool) {
+	res = 0
+	for _, c := range s {
+		if v := uint(c - '0'); v < 0 || v > 9 {
+			ok = false
+			break
+		} else {
+			res = res*10 + v
+		}
+	}
+
+	return res, ok
+}
+
+// B2I converts a byte slice to an uint
+func B2I(s []byte) (res int, ok bool) {
+	res = 0
+	for _, c := range s {
+		if v := int(c - '0'); v < 0 || v > 9 {
+			ok = false
+			break
+		} else {
+			res = res*10 + v
+		}
+	}
+
+	return res, ok
+}
+
 // B2I64 converts a byte slice to an int64
 func B2I64(s []byte) (res int64, ok bool) {
 	sign := len(s) > 0 && s[0] == '-'
