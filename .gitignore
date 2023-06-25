@@ -16,3 +16,6 @@
 
 machinet.conf
 /.idea
+
+Dockerfile_bench
+Dockerfile

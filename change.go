@@ -25,3 +25,11 @@ func BytesTrimLeft(buf []byte) []byte {
 	}
 	return buf[i:]
 }
+
+// BytesTrimRight trims all empty bytes (' ') from the right and returns a new slice.
+func BytesTrimRight(buf []byte) []byte {
+	i, l := 0, len(buf)
+	for ; i < l && buf[i] != ' '; i++ {
+	}
+	return buf[:i+1]
+}
